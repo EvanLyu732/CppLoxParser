@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/home/evanlyu732/GitRepo/CppLoxParser/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9 -I/home/evanlyu732/GitRepo/CppLoxParser/src -g -std=gnu++14 -o CMakeFiles/cxx_lox_parser.dir/src/lox_parser.cpp.o -c /home/evanlyu732/GitRepo/CppLoxParser/src/lox_parser.cpp",
+  "file": "/home/evanlyu732/GitRepo/CppLoxParser/src/lox_parser.cpp"
+},
+{
+  "directory": "/home/evanlyu732/GitRepo/CppLoxParser/build",
+  "command": "/bin/x86_64-linux-gnu-g++-9 -I/home/evanlyu732/GitRepo/CppLoxParser/src -g -std=gnu++14 -o CMakeFiles/cxx_lox_parser.dir/src/main.cpp.o -c /home/evanlyu732/GitRepo/CppLoxParser/src/main.cpp",
+  "file": "/home/evanlyu732/GitRepo/CppLoxParser/src/main.cpp"
+}
+]

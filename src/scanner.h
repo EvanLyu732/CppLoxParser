@@ -15,9 +15,6 @@ namespace scanner{
         Scanner() = delete;
         ~Scanner() = delete;
 
-        struct Token{
-        }
-
     }
 
     

@@ -9,7 +9,7 @@ namespace parser{
     #define LOG_TAG "[lox_parser]"
 
     struct LoxParser{
-
+    public:
         LoxParser() = delete;
         LoxParser(::scanner::Scanner sc) {
 
@@ -20,7 +20,18 @@ namespace parser{
 
         void run_prompt() noexcept(false);
 
-        void run(std::string prompt_command) noexcept;
+        void run(std::string_view prompt_command) noexcept;
+
+        struct Error{
+            int line_number;
+            std::string_view content;
+            std::string_view where;
+        };
+
+        void report(Error e) const noexcept;
+
+    private:
+        static bool had_error{false};
 
     };
 

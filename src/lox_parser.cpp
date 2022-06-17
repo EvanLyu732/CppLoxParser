@@ -27,9 +27,17 @@ namespace parser {
         }
     }
 
-    void LoxParser::run(std::string prompt_command) {
+    void LoxParser::run(std::string_view prompt_command) {
 
     }
 
+
+    // TODO: Error handling in running command; report line + 
+    // where + message 
+    void LoxParser::report(LoxParser::Error e) const {
+
+        // set had_error = true; reset had_error = false and execute std::terminate; 
+
+    }
 
 }

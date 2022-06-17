@@ -14,27 +14,27 @@ namespace parser {
     } catch (std::exception& e) {
     }
 
-    void LoxParser::run_prompt() {
+    void LoxParser::run_prompt() noexcept {
         for (;;) {
             std::cout << ">" << '\n';
-            std::istringstream input_line;
+            std::string input_line;
             std::getline(std::cin, input_line);
-            auto input_line_str = input_line.str();
-            if (input_line_str.empty()) {
+            if (input_line.empty()) {
                 continue;
             } else {
-                run(input_line_str);
+                run(input_line);
+            }
         }
     }
 
-    void LoxParser::run(std::string_view prompt_command) {
+    void LoxParser::run(std::string_view prompt_command) noexcept {
 
     }
 
 
     // TODO: Error handling in running command; report line + 
-    // where + message 
-    void LoxParser::report(LoxParser::Error e) const {
+    // where + message  = 0
+    void LoxParser::report(LoxParser::Error e) const noexcept {
 
         // set had_error = true; reset had_error = false and execute std::terminate; 
 

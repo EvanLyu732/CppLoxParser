@@ -18,7 +18,7 @@ namespace parser{
 
         void run_file(std::string_view path) noexcept(false);
 
-        void run_prompt() noexcept(false);
+        void run_prompt() noexcept;
 
         void run(std::string_view prompt_command) noexcept;
 
@@ -31,7 +31,7 @@ namespace parser{
         void report(Error e) const noexcept;
 
     private:
-        static bool had_error{false};
+        inline static bool had_error{false};
 
     };
 

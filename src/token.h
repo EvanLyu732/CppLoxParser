@@ -1,7 +1,7 @@
 #ifndef _TOKEN_
 #define _TOKEN_
 
-#include <stirng_view>
+#include <string_view>
 #include <string>
 #include <any>
 
@@ -48,126 +48,126 @@ namespace token
             TRUE,
             VAR,
             WHILE,
-            EOF
+            _EOF
         };
 
-        inline const char* get_token_type_string(TokenType type) {
+        inline const char* get_token_type_string(Token::TokenType type) {
             switch (type) {
-                case "LEFT_PAREN":
+                case Token::TokenType::LEFT_PAREN:
                     return "LEFT_PAREN";
 
-                case "RIGHT_PAREN":
+                case Token::TokenType::RIGHT_PAREN:
                     return "RIGHT_PAREN";
 
-                case "LEFT_BRACE":
+                case Token::TokenType::LEFT_BRACE:
                     return "LEFT_BRACE";
 
-                case "RIGHT_BRACE":
+                case Token::TokenType::RIGHT_BRACE:
                     return "RIGHT_BRACE";
 
-                case "COMMA";
+                case Token::TokenType::COMMA:
                     return "COMMA";
 
-                case "DOT":
+                case Token::TokenType::DOT:
                     return "DOT";
 
-                case "MINUS":
+                case Token::TokenType::MINUS:
                     return "MINUS";
 
-                case "PLUS":
+                case Token::TokenType::PLUS:
                     return "PLUS";
 
-                case "SEMICOLON":
+                case Token::TokenType::SEMICOLON:
                     return "SEMICOLON";
 
-                case "SLASH":
+                case Token::TokenType::SLASH:
                     return "SLASH";
 
-                case "STAR":
+                case Token::TokenType::STAR:
                     return "STAR";
 
-                case "BANG":
+                case Token::TokenType::BANG:
                     return "BANG";
 
-                case "BANG_EQUAL":
+                case Token::TokenType::BANG_EQUAL:
                     return "BANG_EQUAL";
 
-                case "EQUAL":
+                case Token::TokenType::EQUAL:
                     return "EQUAL";
 
-                case "EQUAL_EQUAL":
+                case Token::TokenType::EQUAL_EQUAL:
                     return "EQUAL_EQUAL";
 
-                case "GREATER":
+                case Token::TokenType::GREATER:
                     return "GREATER";
 
-                case "GREATER_EQUAL":
+                case Token::TokenType::GREATER_EQUAL:
                     return "GREATER_EQUAL";
 
-                case "LESS":
+                case Token::TokenType::LESS:
                     return "LESS";
 
-                case "LESS_EQUAL":
+                case Token::TokenType::LESS_EQUAL:
                     return "LESS_EQUAL";
 
-                case "IDENTIFIER":
+                case Token::TokenType::IDENTIFIER:
                     return "IDENTIFIER";
 
-                case "STRING":
+                case Token::TokenType::STRING:
                     return "STRING";
 
-                case "NUMBER":
+                case Token::TokenType::NUMBER:
                     return "NUMBER";
 
-                case "AND":
+                case Token::TokenType::AND:
                     return "AND";
 
-                case "CLASS":
+                case Token::TokenType::CLASS:
                     return "CLASS";
 
-                case "ELSE":
+                case Token::TokenType::ELSE:
                     return "ELSE";
 
-                case "FALSE":
+                case Token::TokenType::FALSE:
                     return "FALSE";
 
-                case "FUN":
+                case Token::TokenType::FUN:
                     return "FUN";
 
-                case "FOR":
+                case Token::TokenType::FOR:
                     return "FOR";
 
-                case "IF":
+                case Token::TokenType::IF:
                     return "IF";
 
-                case "NIL":
+                case Token::TokenType::NIL:
                     return "NIL";
 
-                case "OR":
+                case Token::TokenType::OR:
                     return "OR";
 
-                case "PRINT":
+                case Token::TokenType::PRINT:
                     return "PRINT";
 
-                case "RETURN":
+                case Token::TokenType::RETURN:
                     return "RETURN";
 
-                case "SUPER":
+                case Token::TokenType::SUPER:
                     return "SUPER";
 
-                case "THIS":
+                case Token::TokenType::THIS:
                     return "THIS";
 
-                case "TRUE":
+                case Token::TokenType::TRUE:
                     return "TRUE";
 
-                case "VAR":
+                case Token::TokenType::VAR:
                     return "VAR";
 
-                case "WHILE":
+                case Token::TokenType::WHILE:
                     return "WHILE";
 
-                case "EOF":
+                case Token::TokenType::_EOF:
                     return "EOF";
             }
         }
@@ -176,15 +176,18 @@ namespace token
         Token(TokenType type, std::string lexeme, std::any literal, int line): _type(type), _lexeme(lexeme), _literal(literal), _line(line){
         }
 
-        inline std::string to_str()  {
-            return std::string(get_token_type_string(_type)) +  " " +  _lexeme + " " + _line;
-        }
-
+        ~Token() = default;
     private:
         TokenType _type;
         std::string _lexeme;
         std::any _literal;
         int _line;
+
+    public:
+        inline std::string to_str()  {
+            return std::string(get_token_type_string(_type)) +  " " +  _lexeme + " " + std::to_string(_line);
+        }
+
     };
     
 } // namespace name

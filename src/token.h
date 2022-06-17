@@ -7,8 +7,8 @@
 
 namespace token
 {
-    // pod token
     struct Token{
+    public:
         enum class TokenType: uint8_t{
             LEFT_PAREN,
             RIGHT_PAREN,
@@ -182,6 +182,7 @@ namespace token
         std::string _lexeme;
         std::any _literal;
         int _line;
+
 
     public:
         inline std::string to_str()  {

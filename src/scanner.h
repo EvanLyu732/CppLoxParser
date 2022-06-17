@@ -20,10 +20,19 @@ namespace scanner{
 
     public:
         std::list<token::Token> scan_tokens() noexcept;
+        void scan_token() noexcept;
+        bool is_at_end() noexcept;
 
     private:
         std::string _source;
         std::list<token::Token> _tokens;
+
+        char advance() noexcept;
+
+        // keep track of token
+        static int _start;
+        static int _current;
+        static int _line;
     };
 
     
